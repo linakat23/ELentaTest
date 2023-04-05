@@ -1,5 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class User {
     public String username;
@@ -16,8 +19,6 @@ public class User {
     }
 
     public static boolean registerUser(User user) {
-    driver.get("https://elenta.lt/prisijungti?returnurl=https%3A%2F%2Felenta.lt%2F");
-    driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[1]/div[2]/div[2]/button[1]/p")).click();
     driver.findElement(By.xpath("//*[@id=\"form\"]/fieldset/table/tbody/tr[10]/td/p/a")).click();
     driver.findElement(By.id("UserName")).sendKeys(user.username);
     driver.findElement(By.id("Email")).sendKeys(user.email);
@@ -27,7 +28,11 @@ public class User {
     return true;
     }
 
-
-
-
+//    public static boolean checkRegistrationFromStatus() {
+//        boolean output = true;
+//
+//        if (driver.findElements(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[1]/td[2]/span")).isEmpty()) {
+//        }
+//        return true;
+//    }
 }
