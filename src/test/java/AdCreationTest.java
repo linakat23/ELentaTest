@@ -13,6 +13,11 @@ public class AdCreationTest {
         assertTrue(Ad.adCreation(new Ad("Moneta", "Labai sena, brangi moneta","27","Vilnius","863455456","moneta@gmail.com")));
     }
 
+    @Test
+    public void onlySpacesInTitleDescriptionAndPhoneTest() {
+        assertFalse(Ad.adCreation(new Ad("   ", "   ", "22","Vilnius","   ", "emeilas@emailas.com")));
+    }
+
     @BeforeClass
     public void beforeClass() {
         Ad.driver = new ChromeDriver();

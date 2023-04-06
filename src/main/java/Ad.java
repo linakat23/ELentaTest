@@ -1,8 +1,8 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
+
 public class Ad {
     public String title;
     public String description;
@@ -39,7 +39,7 @@ public class Ad {
         boolean output = true;
 
         List<WebElement> successfulUpload = driver.findElements(By.xpath("/html/body/div[1]/h4"));
-        if (successfulUpload.size() >0 && successfulUpload.get(0).getText().equals("SKELBIMAS AKTYVUS")) {
+        if (successfulUpload.size() > 0 && successfulUpload.get(0).getText().equals("SKELBIMAS AKTYVUS")) {
             return true;
         }
 

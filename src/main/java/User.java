@@ -36,7 +36,7 @@ public class User {
         boolean output = true;
 
         List<WebElement> successfulRegistration = driver.findElements(By.xpath("/html/body/div[1]/div[2]/h1/b"));
-        if (successfulRegistration.size() >0 && successfulRegistration.get(0).getText().equals("Jūs sėkmingai prisiregistravote")) {
+        if (successfulRegistration.size() > 0 && successfulRegistration.get(0).getText().equals("Jūs sėkmingai prisiregistravote")) {
             return true;
         }
 

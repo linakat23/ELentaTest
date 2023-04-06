@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 public class LoginTest {
 
     @Test(priority = 1)
-    public void usernamePasswordMismatchTest() {
+    public void incorrectCredentialsTest() {
         assertFalse(User.loginUser(new User("&*@", "testavimas")));
     }
 
