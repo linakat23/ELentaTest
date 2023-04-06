@@ -7,7 +7,7 @@ import java.time.Duration;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class LentaLoginTest {
+public class LoginTest {
 
     @Test(priority = 1)
     public void usernamePasswordMismatchTest() {
