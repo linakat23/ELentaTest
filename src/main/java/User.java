@@ -17,8 +17,13 @@ public class User {
         this.password2 = password2;
     }
 
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public static boolean registerUser(User user) {
-       driver.get("https://elenta.lt/registracija");
+        driver.get("https://elenta.lt/registracija");
         driver.findElement(By.id("UserName")).sendKeys(user.username);
         driver.findElement(By.id("Email")).sendKeys(user.email);
         driver.findElement(By.id("Password")).sendKeys(user.password);
@@ -57,6 +62,44 @@ public class User {
 
         if (secondPasswordMismatch.size() > 0) {
             System.out.println(secondPasswordMismatch.get(0).getText());
+            output = false;
+        }
+
+        return output;
+    }
+
+    public static boolean loginUser(User user) {
+        driver.get("https://elenta.lt/prisijungti?returnurl=https%3A%2F%2Felenta.lt%2Fregistracija");
+        driver.findElement(By.id("UserName")).sendKeys(user.username);
+        driver.findElement(By.id("Password")).sendKeys(user.password);
+        driver.findElement(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[4]/td[2]/input")).click();
+        return checkLoginStatus();
+    }
+
+    public static boolean checkLoginStatus() {
+        boolean output = true;
+
+        List<WebElement> successfulLogin = driver.findElements(By.xpath("/html/body/div[2]/div[1]/div[2]/div/a[3]"));
+        if (successfulLogin.size() > 0 && successfulLogin.get(0).getText().equals("mano skelbimai")) {
+            return true;
+        }
+
+        List<WebElement> incorrectCredentialsError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[5]/td/div/ul/li"));
+        List<WebElement> emptyUsernameError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
+        List<WebElement> emptyPasswordError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[3]/td[2]/span"));
+
+        if (incorrectCredentialsError.size() > 0) {
+            System.out.println(incorrectCredentialsError.get(0).getText());
+            output = false;
+        }
+
+        if (emptyUsernameError.size() > 0) {
+            System.out.println(emptyUsernameError.get(0).getText());
+            output = false;
+        }
+
+        if (emptyPasswordError.size() > 0) {
+            System.out.println(emptyPasswordError.get(0).getText());
             output = false;
         }
 

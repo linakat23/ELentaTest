@@ -74,7 +74,6 @@ public class LentaRegisterTest {
 
     @BeforeClass
     public void beforeClass() {
-       // System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver112.exe");
         User.driver = new ChromeDriver();
         User.driver.manage().window().maximize();
         User.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -86,9 +85,4 @@ public class LentaRegisterTest {
     public void afterClass() {
     //    driver.quit();
     }
-
-//    @BeforeMethod
-//    public void beforeMethod() {
-//        driver.get("https://elenta.lt/");
-//    }
 }
