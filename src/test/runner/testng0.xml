@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http//testng.org/testng-1.0.dtd">
+
+<suite name="SmokeTest">
+    <test name="loginAndCreateAd">
+        <parameter name="username3" value="elentajonas"></parameter>
+        <parameter name="password3" value="testavimas"></parameter>
+        <parameter name="title3" value="Knyga"></parameter>
+        <parameter name="description3" value="Labai sena, brangi knyga"></parameter>
+        <parameter name="price3" value="27"></parameter>
+        <parameter name="city3" value="Klaipėda"></parameter>
+        <parameter name="phone3" value="863455456"></parameter>
+        <parameter name="email3" value="emeilas@emeilas.com"></parameter>
+        <classes>
+
+            <class name="LoginTest">
+                <methods>
+                    <include name="successfulLoginTest"/>
+                </methods>
+            </class>
+            <class name="AdCreationTest">
+                <methods>
+                    <include name="successfulAdUpload"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>

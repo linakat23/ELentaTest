@@ -18,7 +18,7 @@ public class RegisterTest {
 
     @Test(priority = 3)
     public void digitsUsernameTest() {
-        assertTrue(User.registerUser(new User("1020301", "jonasjonaitis@inbox.lv", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("1020301", "jonasjonaitis@inbox.lv", "testavimas", "testavimas")));
     }
 
     @Test(priority = 4)
