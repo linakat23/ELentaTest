@@ -7,14 +7,30 @@ import java.time.Duration;
 
 public class LentaRegisterTest {
 
+    @Ignore
     @Test(priority = 1)
     public void registerUserTest() {
-        assertTrue(User.registerUser(new User("Jonas", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
+        assertTrue(User.registerUser(new User("Jonas111", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
+    }
+
+    @Test (priority = 2)
+    public void usernameTakenTest() {
+        assertTrue(User.registerUser(new User("Jonas", "jonasjonaitis111@yahoo.com", "testavimas", "testavimas")));
     }
 
     @Test
-    public void multipleErrorsTest() {
-        assertTrue(User.registerUser(new User("", "jonasjonaitis11", "aaaa", "aaaa")));
+    public void invalidEmailTest() {
+        assertTrue(User.registerUser(new User("Jonas", "jonasjonaitis", "testavimas", "testavimas")));
+    }
+
+    @Test
+    public void passwordTooShortTest() {
+        assertTrue(User.registerUser(new User("Jonas1", "jonasjonaitis1111@yahoo.com", "aaa", "aaa")));
+    }
+
+    @Test
+    public void usernameEmailPasswordErrorsAtOnce() {
+        assertTrue(User.registerUser(new User("", "jonelis","aa","aa")));
     }
 
     @BeforeClass

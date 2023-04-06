@@ -30,29 +30,29 @@ public class User {
     public static boolean checkRegistrationStatus() {
         boolean output = true;
 
-        List<WebElement> usernameEmptyError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
-        List<WebElement> usernameExistsError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
+        List<WebElement> usernameError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
         List<WebElement> invalidEmailError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[4]/td[2]/span"));
-        List<WebElement> passwordTooShortError = driver.findElements(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[7]/td[2]/span"));
+        List<WebElement> passwordTooShortError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[7]/td[2]/span"));
+        List<WebElement> secondPasswordMismatch = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[8]/td[2]/span"));
 
-        if (usernameEmptyError.size() > 0) {
-            System.out.println(usernameEmptyError.get(0).getText());
-            return false;
-        }
-
-        if (usernameExistsError.size() > 0) {
-            System.out.println(usernameExistsError.get(0).getText());
-            return false;
+        if (usernameError.size() > 0) {
+            System.out.println(usernameError.get(0).getText());
+            output = false;
         }
 
         if (invalidEmailError.size() > 0) {
             System.out.println(invalidEmailError.get(0).getText());
-            return false;
+            output = false;
         }
 
         if (passwordTooShortError.size() > 0) {
             System.out.println(passwordTooShortError.get(0).getText());
-            return false;
+            output = false;
+        }
+
+        if (secondPasswordMismatch.size() > 0) {
+            System.out.println(secondPasswordMismatch.get(0).getText());
+            output = false;
         }
 
         return output;
