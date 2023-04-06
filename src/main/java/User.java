@@ -18,7 +18,7 @@ public class User {
     }
 
     public static boolean registerUser(User user) {
-        driver.findElement(By.xpath("//*[@id=\"form\"]/fieldset/table/tbody/tr[10]/td/p/a")).click();
+       driver.get("https://elenta.lt/registracija");
         driver.findElement(By.id("UserName")).sendKeys(user.username);
         driver.findElement(By.id("Email")).sendKeys(user.email);
         driver.findElement(By.id("Password")).sendKeys(user.password);
@@ -29,6 +29,11 @@ public class User {
 
     public static boolean checkRegistrationStatus() {
         boolean output = true;
+
+        List<WebElement> successfulRegistration = driver.findElements(By.xpath("/html/body/div[1]/div[2]/h1/b"));
+        if (successfulRegistration.size() >0 && successfulRegistration.get(0).getText().equals("Jūs sėkmingai prisiregistravote")) {
+            return true;
+        }
 
         List<WebElement> usernameError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
         List<WebElement> invalidEmailError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[4]/td[2]/span"));
