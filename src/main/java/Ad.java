@@ -7,7 +7,7 @@ public class Ad {
     public String description;
     public String price;
     public String cityOrDistrict;
-    public String phoneNumber;
+    public static String phoneNumber;
     public String email;
 
     public Ad(String title, String description, String price, String cityOrDistrict) {
@@ -106,4 +106,3 @@ public class Ad {
         return true;
     }
 }
-

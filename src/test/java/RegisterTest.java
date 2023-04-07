@@ -57,11 +57,16 @@ public class RegisterTest {
     }
 
     @Test(priority = 11)
+    public void emptyPasswordsTest() {
+        assertFalse(User.registerUser(new User("Jonas987", "jonasjonaitis114511@yahoo.com", "", "")));
+    }
+
+    @Test(priority = 12)
     public void usernameEmailPasswordErrorsAtOnceTest() {
         assertFalse(User.registerUser(new User("", "jonelis", "aa", "bbbb")));
     }
 
-    @Test(priority = 12)
+    @Test(priority = 13)
     public void registerUserCorrectInputTest() {
         assertTrue(User.registerUser(new User("xyzxyz123", "xyzxyz123@yahoo.com", "testavimas", "testavimas")));
     }

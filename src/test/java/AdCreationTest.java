@@ -15,11 +15,27 @@ public class AdCreationTest {
     }
 
     @Test(priority = 2)
+    public void emptyTitleDescriptionAndPhoneTest() {
+        assertFalse(Ad.adCreation(new Ad("", "", "10", "Skuodas", "", "emeilas@emeilas.com")));
+    }
+
+    @Test(priority = 3)
+    public void incorrectPhoneInputTest() {
+        assertFalse(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "10", "Skuodas", "7656445", "emeilas@emeilas.com")));
+    }
+
+    @Test(priority = 4)
+    public void onlyNumbersInDescription() {
+        assertFalse(Ad.adCreation(new Ad("Knyga", "1111", "10", "Skuodas", "867633452", "emeilas@emeilas.com")));
+    }
+
+    @Test(priority = 5)
     public void successfulAdUploadTest() {
         assertTrue(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "20", "Vilnius", "867633212", "emeilas@emeilas.com")));
     }
+
     @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
-    @Test(priority = 3,groups = {"smoke"})
+    @Test(priority = 6, groups = {"smoke"})
     public void successfulAdUploadWhenLoggedInXMLTest(String title3, String description3, String price3, String city3, String phone3, String email3) {
         assertTrue(Ad.adCreation(new Ad(title3, description3, price3, city3, phone3, email3)));
     }
