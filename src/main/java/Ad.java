@@ -19,22 +19,6 @@ public class Ad {
         this.email = email;
     }
 
-    public static boolean adCreation(Ad ad) {
-        adCreationPage1(ad);
-        if (!adCreationStatusPage1()) {
-            return false;
-        }
-        adCreationPage2(ad);
-        if (!adCreationStatusPage2()) {
-            return false;
-        }
-        adCreationPage3(ad);
-        if (!adCreationStatusPage3()) {
-            return false;
-        }
-        return true;
-    }
-
     public static void adCreationPage1(Ad ad) {
         DriverStart.driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_KinasKnygosMuzika&actionId=Siulo&returnurl=%2Fpatalpinti%2Fivesti-informacija");
         DriverStart.driver.findElement(By.id("title")).sendKeys(ad.title);
@@ -53,6 +37,22 @@ public class Ad {
 
     public static void adCreationPage3(Ad ad) {
         DriverStart.driver.findElement(By.id("forward-button")).click();
+    }
+
+    public static boolean adCreation(Ad ad) {
+        adCreationPage1(ad);
+        if (!adCreationStatusPage1()) {
+            return false;
+        }
+        adCreationPage2(ad);
+        if (!adCreationStatusPage2()) {
+            return false;
+        }
+        adCreationPage3(ad);
+        if (!adCreationStatusPage3()) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean adCreationStatusPage1() {
