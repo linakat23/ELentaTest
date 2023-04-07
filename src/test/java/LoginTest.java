@@ -1,9 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 import java.time.Duration;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -20,13 +18,9 @@ public class LoginTest {
         assertFalse(User.loginUser(new User("", "")));
     }
 
-    @Test(priority = 3)
-    public void successfulLoginTest() {
-        assertTrue(User.loginUser(new User("elentajonas", "testavimas")));
-    }
     @Parameters({"username3", "password3"})
     @Test(priority = 4, groups = {"smoke"})
-    public void successfulLoginXMLTest(String username3, String password3) {
+    public void successfulLoginXMLTest(@Optional("elentajonas") String username3, @Optional("testavimas") String password3) {
         assertTrue(User.loginUser(new User(username3, password3)));
     }
 

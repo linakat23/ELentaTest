@@ -7,15 +7,8 @@ public class Ad {
     public String description;
     public String price;
     public String cityOrDistrict;
-    public static String phoneNumber;
+    public String phoneNumber;
     public String email;
-
-    public Ad(String title, String description, String price, String cityOrDistrict) {
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.cityOrDistrict = cityOrDistrict;
-    }
 
     public Ad(String title, String description, String price, String cityOrDistrict, String phoneNumber, String email) {
         this.title = title;

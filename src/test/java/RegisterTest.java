@@ -68,7 +68,7 @@ public class RegisterTest {
 
     @Test(priority = 13)
     public void registerUserCorrectInputTest() {
-        assertTrue(User.registerUser(new User("xyzxyz123", "xyzxyz123@yahoo.com", "testavimas", "testavimas")));
+        assertTrue(User.registerUser(new User("xxyzxyz321", "xxyzxyz321@yahoo.com", "testavimas", "testavimas")));
     }
 
     @BeforeClass

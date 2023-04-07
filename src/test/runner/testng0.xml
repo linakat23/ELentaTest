@@ -9,6 +9,8 @@
         <parameter name="description3" value="Labai sena, brangi knyga"></parameter>
         <parameter name="price3" value="27"></parameter>
         <parameter name="city3" value="Vilnius"></parameter>
+        <parameter name="phone3" value=""></parameter>
+        <parameter name="email3" value=""></parameter>
         <groups>
             <run>
                 <include name="smoke"/>

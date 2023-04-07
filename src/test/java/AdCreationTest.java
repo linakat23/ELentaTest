@@ -1,9 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 import static org.testng.Assert.*;
 import java.time.Duration;
 
@@ -29,14 +27,16 @@ public class AdCreationTest {
         assertFalse(Ad.adCreation(new Ad("Knyga", "1111", "10", "Skuodas", "867633452", "emeilas@emeilas.com")));
     }
 
-    @Test(priority = 5)
-    public void successfulAdUploadTest() {
-        assertTrue(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "20", "Vilnius", "867633212", "emeilas@emeilas.com")));
-    }
-
     @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
-    @Test(priority = 6, groups = {"smoke"})
-    public void successfulAdUploadWhenLoggedInXMLTest(String title3, String description3, String price3, String city3, String phone3, String email3) {
+    @Test(priority = 5, groups = {"smoke"})
+    public void successfulAdUploadWhenLoggedInXMLTest(
+            @Optional("Knyga") String title3,
+            @Optional("Sena skaityta knyga") String description3,
+            @Optional("12") String price3,
+            @Optional("Vilnius") String city3,
+            @Optional("865433454") String phone3,
+            @Optional("emeilas@emeilas.com")String email3
+    ) {
         assertTrue(Ad.adCreation(new Ad(title3, description3, price3, city3, phone3, email3)));
     }
 
