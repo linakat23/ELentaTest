@@ -26,17 +26,17 @@ public class Ad {
         this.email = email;
     }
 
-    public static boolean adCreation(Ad ad){
+    public static boolean adCreation(Ad ad) {
         adCreationPage1(ad);
-        if(!adCreationStatusPage1()){
+        if (!adCreationStatusPage1()) {
             return false;
         }
         adCreationPage2(ad);
-        if(!adCreationStatusPage2()){
+        if (!adCreationStatusPage2()) {
             return false;
         }
         adCreationPage3(ad);
-        if(!adCreationStatusPage3()){
+        if (!adCreationStatusPage3()) {
             return false;
         }
         return true;
@@ -65,15 +65,15 @@ public class Ad {
     public static boolean adCreationStatusPage1() {
         boolean output = true;
 
-        List<WebElement> successfulUpload =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/h4"));
+        List<WebElement> successfulUpload = DriverStart.driver.findElements(By.xpath("/html/body/div[1]/h4"));
         if (successfulUpload.size() > 0 && successfulUpload.get(0).getText().equals("SKELBIMAS AKTYVUS")) {
             return true;
         }
 
-        List<WebElement> titleError =  DriverStart.driver.findElements(By.id("te"));
+        List<WebElement> titleError = DriverStart.driver.findElements(By.id("te"));
         List<WebElement> descriptionError = DriverStart.driver.findElements(By.id("txte"));
-        List<WebElement> phoneNumberError =  DriverStart.driver.findElements(By.id("ce"));
-        List<WebElement> phoneNumberError2 =  DriverStart.driver.findElements(By.id("pe"));
+        List<WebElement> phoneNumberError = DriverStart.driver.findElements(By.id("ce"));
+        List<WebElement> phoneNumberError2 = DriverStart.driver.findElements(By.id("pe"));
 
         if (titleError.size() > 0) {
             System.out.println(titleError.get(0).getText());
@@ -106,3 +106,4 @@ public class Ad {
         return true;
     }
 }
+
