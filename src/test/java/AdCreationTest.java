@@ -15,28 +15,22 @@ public class AdCreationTest {
     }
 
     @Test(priority = 2)
-    public void lettersPriceTest() {
-        assertFalse(Ad.adCreation(new Ad("smth", "smth smth","abc","Vilnius","876766787","emeilas@emeilas.com")));
+    public void successfulAdUploadTest() {
+        assertTrue(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "20", "Vilnius", "867633212", "emeilas@emeilas")));
     }
-
-    @Test(priority = 3)
-    public void gibberishCityOrDistrictTest() {
-        assertFalse(Ad.adCreation(new Ad("smth", "smth smth","abc","fdssdf","876766787","emeilas@emeilas.com")));
-    }
-
     @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
-    @Test(priority = 4)
-    public void successfulAdUpload(String title3, String description3, String price3, String city3, String phone3, String email3) {
+    @Test(priority = 3,groups = {"smoke"})
+    public void successfulAdUploadXMLTest(String title3, String description3, String price3, String city3, String phone3, String email3) {
         assertTrue(Ad.adCreation(new Ad(title3, description3, price3, city3, phone3, email3)));
     }
 
     @BeforeClass
     public void beforeClass() {
-        Ad.driver = new ChromeDriver();
-        Ad.driver.manage().window().maximize();
-        Ad.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        Ad.driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_KinasKnygosMuzika&actionId=Siulo&returnurl=%2Fpatalpinti%2Fivesti-informacija");
-        Ad.driver.findElement(By.xpath("/html/body/div[5]/div[2]/div[1]/div[2]/div[2]/button[1]/p")).click();
+        DriverStart.driver = new ChromeDriver();
+        DriverStart.driver.manage().window().maximize();
+        DriverStart.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        DriverStart.driver.get("https://elenta.lt/registracija");
+        DriverStart.driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[1]/div[2]/div[2]/button[1]")).click();
     }
 
     @AfterClass

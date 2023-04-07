@@ -8,20 +8,19 @@
         <parameter name="title3" value="Knyga"></parameter>
         <parameter name="description3" value="Labai sena, brangi knyga"></parameter>
         <parameter name="price3" value="27"></parameter>
-        <parameter name="city3" value="Klaipėda"></parameter>
-        <parameter name="phone3" value="863455456"></parameter>
-        <parameter name="email3" value="emeilas@emeilas.com"></parameter>
+        <parameter name="city3" value="Vilnius"></parameter>
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
         <classes>
 
+            <class name="DriverStartTest">
+            </class>
             <class name="LoginTest">
-                <methods>
-                    <include name="successfulLoginTest"/>
-                </methods>
             </class>
             <class name="AdCreationTest">
-                <methods>
-                    <include name="successfulAdUpload"/>
-                </methods>
             </class>
 
         </classes>

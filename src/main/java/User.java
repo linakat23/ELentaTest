@@ -8,7 +8,6 @@ public class User {
     public String email;
     public String password;
     public String password2;
-    public static WebDriver driver;
 
     public User(String username, String email, String password, String password2) {
         this.username = username;
@@ -23,27 +22,27 @@ public class User {
     }
 
     public static boolean registerUser(User user) {
-        driver.get("https://elenta.lt/registracija");
-        driver.findElement(By.id("UserName")).sendKeys(user.username);
-        driver.findElement(By.id("Email")).sendKeys(user.email);
-        driver.findElement(By.id("Password")).sendKeys(user.password);
-        driver.findElement(By.id("Password2")).sendKeys(user.password2);
-        driver.findElement(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[11]/td[2]/input")).click();
+        DriverStart.driver.get("https://elenta.lt/registracija");
+        DriverStart.driver.findElement(By.id("UserName")).sendKeys(user.username);
+        DriverStart.driver.findElement(By.id("Email")).sendKeys(user.email);
+        DriverStart.driver.findElement(By.id("Password")).sendKeys(user.password);
+        DriverStart.driver.findElement(By.id("Password2")).sendKeys(user.password2);
+        DriverStart.driver.findElement(By.xpath("//*[@id=\"main-container\"]/form/fieldset/table/tbody/tr[11]/td[2]/input")).click();
         return checkRegistrationStatus();
     }
 
     public static boolean checkRegistrationStatus() {
         boolean output = true;
 
-        List<WebElement> successfulRegistration = driver.findElements(By.xpath("/html/body/div[1]/div[2]/h1/b"));
+        List<WebElement> successfulRegistration =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/div[2]/h1/b"));
         if (successfulRegistration.size() > 0 && successfulRegistration.get(0).getText().equals("Jūs sėkmingai prisiregistravote")) {
             return true;
         }
 
-        List<WebElement> usernameError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
-        List<WebElement> invalidEmailError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[4]/td[2]/span"));
-        List<WebElement> passwordTooShortError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[7]/td[2]/span"));
-        List<WebElement> secondPasswordMismatch = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[8]/td[2]/span"));
+        List<WebElement> usernameError =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
+        List<WebElement> invalidEmailError =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[4]/td[2]/span"));
+        List<WebElement> passwordTooShortError =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[7]/td[2]/span"));
+        List<WebElement> secondPasswordMismatch =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[8]/td[2]/span"));
 
         if (usernameError.size() > 0) {
             System.out.println(usernameError.get(0).getText());
@@ -69,24 +68,24 @@ public class User {
     }
 
     public static boolean loginUser(User user) {
-        driver.get("https://elenta.lt/prisijungti?returnurl=https%3A%2F%2Felenta.lt%2Fregistracija");
-        driver.findElement(By.id("UserName")).sendKeys(user.username);
-        driver.findElement(By.id("Password")).sendKeys(user.password);
-        driver.findElement(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[4]/td[2]/input")).click();
+        DriverStart.driver.get("https://elenta.lt/prisijungti?returnurl=https%3A%2F%2Felenta.lt%2Fregistracija");
+        DriverStart.driver.findElement(By.id("UserName")).sendKeys(user.username);
+        DriverStart.driver.findElement(By.id("Password")).sendKeys(user.password);
+        DriverStart.driver.findElement(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[4]/td[2]/input")).click();
         return checkLoginStatus();
     }
 
     public static boolean checkLoginStatus() {
         boolean output = true;
 
-        List<WebElement> successfulLogin = driver.findElements(By.xpath("/html/body/div[2]/div[1]/div[2]/div/a[3]"));
+        List<WebElement> successfulLogin =  DriverStart.driver.findElements(By.xpath("/html/body/div[2]/div[1]/div[2]/div/a[3]"));
         if (successfulLogin.size() > 0 && successfulLogin.get(0).getText().equals("mano skelbimai")) {
             return true;
         }
 
-        List<WebElement> incorrectCredentialsError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[5]/td/div/ul/li"));
-        List<WebElement> emptyUsernameError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
-        List<WebElement> emptyPasswordError = driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[3]/td[2]/span"));
+        List<WebElement> incorrectCredentialsError =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[5]/td/div/ul/li"));
+        List<WebElement> emptyUsernameError =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[1]/td[2]/span"));
+        List<WebElement> emptyPasswordError =  DriverStart.driver.findElements(By.xpath("/html/body/div[1]/form/fieldset/table/tbody/tr[3]/td[2]/span"));
 
         if (incorrectCredentialsError.size() > 0) {
             System.out.println(incorrectCredentialsError.get(0).getText());
