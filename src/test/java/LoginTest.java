@@ -20,9 +20,13 @@ public class LoginTest {
         assertFalse(User.loginUser(new User("", "")));
     }
 
+    @Test(priority = 3)
+    public void successfulLoginTest() {
+        assertTrue(User.loginUser(new User("elentajonas", "testavimas")));
+    }
     @Parameters({"username3", "password3"})
-    @Test(priority = 3, groups = {"smoke"})
-    public void successfulLoginTest(String username3, String password3) {
+    @Test(priority = 4, groups = {"smoke"})
+    public void successfulLoginXMLTest(String username3, String password3) {
         assertTrue(User.loginUser(new User(username3, password3)));
     }
 
@@ -32,7 +36,7 @@ public class LoginTest {
         DriverStart.driver.manage().window().maximize();
         DriverStart.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         DriverStart.driver.get("https://elenta.lt/registracija");
-        DriverStart.driver.findElement(By.xpath("/html/body/div[5]/div[2]/div[1]/div[2]/div[2]/button[1]/p")).click();
+        DriverStart.driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[1]/div[2]/div[2]/button[1]/p")).click();
     }
 
     @AfterClass

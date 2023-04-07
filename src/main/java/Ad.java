@@ -54,6 +54,7 @@ public class Ad {
     }
 
     public static void adCreationPage2(Ad ad) {
+        DriverStart.driver.findElement(By.id("inputfile")).sendKeys("C:\\Users\\linak\\IdeaProjects\\ELentaTest\\src\\main\\resources\\Photo\\Screenshot 2023-04-06 183624.png");
         DriverStart.driver.findElement(By.id("forward-button")).click();
     }
 

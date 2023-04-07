@@ -16,11 +16,11 @@ public class AdCreationTest {
 
     @Test(priority = 2)
     public void successfulAdUploadTest() {
-        assertTrue(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "20", "Vilnius", "867633212", "emeilas@emeilas")));
+        assertTrue(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "20", "Vilnius", "867633212", "emeilas@emeilas.com")));
     }
     @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
     @Test(priority = 3,groups = {"smoke"})
-    public void successfulAdUploadXMLTest(String title3, String description3, String price3, String city3, String phone3, String email3) {
+    public void successfulAdUploadWhenLoggedInXMLTest(String title3, String description3, String price3, String city3, String phone3, String email3) {
         assertTrue(Ad.adCreation(new Ad(title3, description3, price3, city3, phone3, email3)));
     }
 
