@@ -7,7 +7,7 @@ import java.time.Duration;
 
 public class DriverStartTest {
 
-    @BeforeSuite(groups = {"smoke"})
+    @BeforeSuite(groups = {"smoke", "negative"})
     public void beforeSuite() {
         DriverStart.driver = new ChromeDriver();
         DriverStart.driver.manage().window().maximize();

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http//testng.org/testng-1.0.dtd">
+
+<suite name="NegativeRegistrationTest">
+    <test name="registrationWithMultipleErrorsTest">
+        <parameter name="username4" value="Jonas"></parameter>
+        <parameter name="email4" value="nonexist@gmail"></parameter>
+        <parameter name="password4" value="aaa"></parameter>
+        <parameter name="password44" value="bbb"></parameter>
+        <groups>
+            <run>
+                <include name="negative"/>
+            </run>
+        </groups>
+        <classes>
+
+            <class name="DriverStartTest">
+            </class>
+            <class name="RegisterTest">
+            </class>
+
+        </classes>
+    </test>
+</suite>

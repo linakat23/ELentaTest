@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-
 import java.time.Duration;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -20,7 +19,7 @@ public class LoginTest {
 
     @Parameters({"username3", "password3"})
     @Test(priority = 4, groups = {"smoke"})
-    public void successfulLoginXMLTest(@Optional("elentajonas") String username3, @Optional("testavimas") String password3) {
+    public void successfulLoginTest(@Optional("elentajonas") String username3, @Optional("testavimas") String password3) {
         assertTrue(User.loginUser(new User(username3, password3)));
     }
 
@@ -35,6 +34,6 @@ public class LoginTest {
 
     @AfterClass
     public void afterClass() {
-        //    driver.quit();
+        DriverStart.driver.quit();
     }
 }

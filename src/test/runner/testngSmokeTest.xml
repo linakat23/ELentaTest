@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http//testng.org/testng-1.0.dtd">
 
 <suite name="SmokeTest">
-    <test name="loginAndCreateAd">
+    <test name="loginAndCreateAdTest">
         <parameter name="username3" value="elentajonas"></parameter>
         <parameter name="password3" value="testavimas"></parameter>
         <parameter name="title3" value="Knyga"></parameter>

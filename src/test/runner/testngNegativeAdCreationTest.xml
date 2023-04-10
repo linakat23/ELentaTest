@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http//testng.org/testng-1.0.dtd">
+
+<suite name="NegativeAdCreationTest">
+    <test name="failedAdCreationTest">
+        <parameter name="title3" value="   "></parameter>
+        <parameter name="description3" value="   "></parameter>
+        <parameter name="price3" value="27"></parameter>
+        <parameter name="city3" value="Vilnius"></parameter>
+        <parameter name="phone3" value="   "></parameter>
+        <parameter name="email3" value=""></parameter>
+        <groups>
+            <run>
+                <include name="negative"/>
+            </run>
+        </groups>
+        <classes>
+
+            <class name="DriverStartTest">
+            </class>
+            <class name="AdCreationTest">
+            </class>
+
+        </classes>
+    </test>
+</suite>

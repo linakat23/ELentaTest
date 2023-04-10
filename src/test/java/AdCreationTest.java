@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-
 import static org.testng.Assert.*;
 import java.time.Duration;
 
@@ -12,9 +11,17 @@ public class AdCreationTest {
         assertFalse(Ad.adCreation(new Ad("   ", "   ", "22","Vilnius","   ", "emeilas@emailas.com")));
     }
 
-    @Test(priority = 2)
-    public void emptyTitleDescriptionAndPhoneTest() {
-        assertFalse(Ad.adCreation(new Ad("", "", "10", "Skuodas", "", "emeilas@emeilas.com")));
+    @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
+    @Test(priority = 2, groups = {"negative"})
+    public void emptyTitleDescriptionAndPhoneTest(
+            @Optional("") String title3,
+            @Optional("") String description3,
+            @Optional("10") String price3,
+            @Optional("Skuodas") String city3,
+            @Optional("") String phone3,
+            @Optional("emeilas@emeilas.com") String email3
+    ) {
+        assertFalse(Ad.adCreation(new Ad(title3, description3, price3, city3, phone3, email3)));
     }
 
     @Test(priority = 3)
@@ -29,7 +36,7 @@ public class AdCreationTest {
 
     @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
     @Test(priority = 5, groups = {"smoke"})
-    public void successfulAdUploadWhenLoggedInXMLTest(
+    public void successfulAdUploadTest(
             @Optional("Knyga") String title3,
             @Optional("Sena skaityta knyga") String description3,
             @Optional("12") String price3,
@@ -51,6 +58,6 @@ public class AdCreationTest {
 
     @AfterClass
     public void afterClass() {
-        //    driver.quit();
+        DriverStart.driver.quit();
     }
 }
