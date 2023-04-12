@@ -7,18 +7,18 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTest {
 
-    @Test(priority = 1)
+    @Test
     public void incorrectCredentialsTest() {
         assertFalse(User.loginUser(new User("&*@", "testavimas")));
     }
 
-    @Test(priority = 2)
+    @Test
     public void emptyCredentialsTest() {
         assertFalse(User.loginUser(new User("", "")));
     }
 
     @Parameters({"username3", "password3"})
-    @Test(priority = 4, groups = {"smoke"})
+    @Test(priority = 3, groups = {"smoke"})
     public void successfulLoginTest(@Optional("elentajonas") String username3, @Optional("testavimas") String password3) {
         assertTrue(User.loginUser(new User(username3, password3)));
     }

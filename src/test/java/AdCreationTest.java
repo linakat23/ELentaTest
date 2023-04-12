@@ -6,45 +6,45 @@ import java.time.Duration;
 
 public class AdCreationTest {
 
-    @Test(priority = 1)
+    @Test
     public void onlySpacesInTitleDescriptionAndPhoneTest() {
         assertFalse(Ad.adCreation(new Ad("   ", "   ", "22","Vilnius","   ", "emeilas@emailas.com")));
     }
 
-    @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
-    @Test(priority = 2, groups = {"negative"})
+    @Parameters({"title", "description", "price", "city", "phone", "email"})
+    @Test(groups = {"negative"})
     public void emptyTitleDescriptionAndPhoneTest(
-            @Optional("") String title3,
-            @Optional("") String description3,
-            @Optional("10") String price3,
-            @Optional("Skuodas") String city3,
-            @Optional("") String phone3,
-            @Optional("emeilas@emeilas.com") String email3
+            @Optional("") String title,
+            @Optional("") String description,
+            @Optional("10") String price,
+            @Optional("Skuodas") String city,
+            @Optional("") String phone,
+            @Optional("emeilas@emeilas.com") String email
     ) {
-        assertFalse(Ad.adCreation(new Ad(title3, description3, price3, city3, phone3, email3)));
+        assertFalse(Ad.adCreation(new Ad(title, description, price, city, phone, email)));
     }
 
-    @Test(priority = 3)
+    @Test
     public void incorrectPhoneInputTest() {
-        assertFalse(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "10", "Skuodas", "7656445", "emeilas@emeilas.com")));
+        assertFalse(Ad.adCreation(new Ad("Knyga", "Skaityta knyga", "10", "Skuodas", "76564", "emeilas@emeilas.com")));
     }
 
-    @Test(priority = 4)
+    @Test
     public void onlyNumbersInDescription() {
         assertFalse(Ad.adCreation(new Ad("Knyga", "1111", "10", "Skuodas", "867633452", "emeilas@emeilas.com")));
     }
 
-    @Parameters({"title3", "description3", "price3", "city3", "phone3", "email3"})
+    @Parameters({"title", "description", "price", "city", "phone", "email"})
     @Test(priority = 5, groups = {"smoke"})
     public void successfulAdUploadTest(
-            @Optional("Knyga") String title3,
-            @Optional("Sena skaityta knyga") String description3,
-            @Optional("12") String price3,
-            @Optional("Vilnius") String city3,
-            @Optional("865433454") String phone3,
-            @Optional("emeilas@emeilas.com")String email3
+            @Optional("Knyga") String title,
+            @Optional("Sena skaityta knyga") String description,
+            @Optional("12") String price,
+            @Optional("Vilnius") String city,
+            @Optional("865433454") String phone,
+            @Optional("emeilas@emeilas.com")String email
     ) {
-        assertTrue(Ad.adCreation(new Ad(title3, description3, price3, city3, phone3, email3)));
+        assertTrue(Ad.adCreation(new Ad(title, description, price, city, phone, email)));
     }
 
     @BeforeClass

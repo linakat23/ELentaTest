@@ -3,12 +3,12 @@
 
 <suite name="NegativeAdCreationTest">
     <test name="failedAdCreationTest">
-        <parameter name="title3" value="   "></parameter>
-        <parameter name="description3" value="   "></parameter>
-        <parameter name="price3" value="27"></parameter>
-        <parameter name="city3" value="Vilnius"></parameter>
-        <parameter name="phone3" value="   "></parameter>
-        <parameter name="email3" value=""></parameter>
+        <parameter name="title" value="   "></parameter>
+        <parameter name="description" value="   "></parameter>
+        <parameter name="price" value="27"></parameter>
+        <parameter name="city" value="Vilnius"></parameter>
+        <parameter name="phone" value="   "></parameter>
+        <parameter name="email" value=""></parameter>
         <groups>
             <run>
                 <include name="negative"/>

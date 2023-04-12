@@ -3,14 +3,14 @@
 
 <suite name="SmokeTest">
     <test name="loginAndCreateAdTest">
-        <parameter name="username3" value="elentajonas"></parameter>
-        <parameter name="password3" value="testavimas"></parameter>
-        <parameter name="title3" value="Knyga"></parameter>
-        <parameter name="description3" value="Labai sena, brangi knyga"></parameter>
-        <parameter name="price3" value="27"></parameter>
-        <parameter name="city3" value="Vilnius"></parameter>
-        <parameter name="phone3" value=""></parameter>
-        <parameter name="email3" value=""></parameter>
+        <parameter name="username" value="elentajonas"></parameter>
+        <parameter name="password" value="testavimas"></parameter>
+        <parameter name="title" value="Knyga"></parameter>
+        <parameter name="description" value="Labai sena, brangi knyga"></parameter>
+        <parameter name="price" value="27"></parameter>
+        <parameter name="city" value="Vilnius"></parameter>
+        <parameter name="phone" value=""></parameter>
+        <parameter name="email" value=""></parameter>
         <groups>
             <run>
                 <include name="smoke"/>

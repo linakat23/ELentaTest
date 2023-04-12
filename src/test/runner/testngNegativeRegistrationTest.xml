@@ -3,10 +3,10 @@
 
 <suite name="NegativeRegistrationTest">
     <test name="registrationWithMultipleErrorsTest">
-        <parameter name="username4" value="Jonas"></parameter>
-        <parameter name="email4" value="nonexist@gmail"></parameter>
-        <parameter name="password4" value="aaa"></parameter>
-        <parameter name="password44" value="bbb"></parameter>
+        <parameter name="username" value="Jonas"></parameter>
+        <parameter name="email" value="nonexist@gmail"></parameter>
+        <parameter name="password" value="aaa"></parameter>
+        <parameter name="password2" value="bbb"></parameter>
         <groups>
             <run>
                 <include name="negative"/>
