@@ -8,7 +8,7 @@ public class AdCreationTest {
 
     @Test
     public void onlySpacesInTitleDescriptionAndPhoneTest() {
-        assertFalse(Ad.adCreation(new Ad("   ", "   ", "22","Vilnius","   ", "emeilas@emailas.com")));
+        assertFalse(Ad.adCreation(new Ad(" ", " ", "22","Vilnius"," ", "emeilas@emailas.com")));
     }
 
     @Parameters({"title", "description", "price", "city", "phone", "email"})
@@ -32,6 +32,25 @@ public class AdCreationTest {
     @Test
     public void onlyNumbersInDescription() {
         assertFalse(Ad.adCreation(new Ad("Knyga", "1111", "10", "Skuodas", "867633452", "emeilas@emeilas.com")));
+    }
+
+    @Test
+    public void titleTooLongTest() {
+        String str = "12345";
+        str = str.repeat(10);
+        assertFalse(Ad.adCreation(new Ad(str, "   ", "22","Vilnius","   ", "emeilas@emailas.com")));
+    }
+
+    @Test
+    public void descriptionTooLongTest() {
+        String str = "12345";
+        str = str.repeat(100);
+        assertFalse(Ad.adCreation(new Ad("title", str, "22","Vilnius","   ", "emeilas@emailas.com")));
+    }
+
+    @Test
+    public void phoneNumberTooLongTest() {
+        assertFalse(Ad.adCreation(new Ad("title", "description", "22","Vilnius", "8656554321234", "emeilas@emailas.com")));
     }
 
     @Parameters({"title", "description", "price", "city", "phone", "email"})

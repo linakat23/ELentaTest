@@ -27,38 +27,53 @@ public class RegisterTest {
     }
 
     @Test
+    public void tooLongUsernameTest() {
+        assertFalse(User.registerUser(new User("1111122222333334444455555666667777788888", "jonasxjonaitis1@msn.com", "testavimas", "testavimas")));
+    }
+
+    @Test
     public void invalidEmailTest() {
-        assertFalse(User.registerUser(new User("Jonasx1", "jonas11!@#jonaitis", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx1", "jonas11!@#jonaitis", "testavimas", "testavimas")));
     }
 
     @Test
     public void emailExistsTest() {
-        assertFalse(User.registerUser(new User("Jonasx1", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx1", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
     }
 
     @Test
     public void emptyEmailTest() {
-        assertFalse(User.registerUser(new User("Jonasx1", "", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx1", "", "testavimas", "testavimas")));
+    }
+
+    @Test
+    public void tooLongEmailTest() {
+        assertFalse(User.registerUser(new User("Jonasxx1", "111112222233333444445555566666777778888899999@111112222233333444445555566666777778888899999.com", "testavimas", "testavimas")));
     }
 
     @Test
     public void tooShortPasswordTest() {
-        assertFalse(User.registerUser(new User("Jonasx1", "jonasxjonaitis1@yahoo.com", "aaa", "aaa")));
+        assertFalse(User.registerUser(new User("Jonasxx1", "jonasxjonaitis1@yahoo.com", "a", "a")));
+    }
+
+    @Test
+    public void tooLongPasswordTest() {
+        assertFalse(User.registerUser(new User("jonelisjonelis", "jonelioemeilas@emeilas.com", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")));
     }
 
     @Test
     public void spacesPasswordTest() {
-        assertFalse(User.registerUser(new User("Jonasx1", "jonasxjonaitis1@yahoo.com", "        ", "        ")));
+        assertFalse(User.registerUser(new User("Jonasxx1", "jonasxjonaitis1@yahoo.com", "        ", "        ")));
     }
 
     @Test
     public void mismatchingPasswordsTest() {
-        assertFalse(User.registerUser(new User("Jonasx1", "jonasxjonaitis1@yahoo.com", "aabbccddee", "eeeeeeeeee")));
+        assertFalse(User.registerUser(new User("Jonasxx1", "jonasxjonaitis1@yahoo.com", "aabbccddee", "eeeeeeeeee")));
     }
 
     @Test
     public void emptyPasswordsTest() {
-        assertFalse(User.registerUser(new User("Jonasx1", "jonasxjonaitis1@yahoo.com", "", "")));
+        assertFalse(User.registerUser(new User("Jonasxx1", "jonasxjonaitis1@yahoo.com", "", "")));
     }
 
     @Parameters({"username", "email", "password", "password2"})
