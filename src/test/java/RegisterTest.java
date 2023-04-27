@@ -38,12 +38,12 @@ public class RegisterTest {
 
     @Test
     public void emailExistsTest() {
-        assertFalse(User.registerUser(new User("Jonasxx1", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx2", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
     }
 
     @Test
     public void emptyEmailTest() {
-        assertFalse(User.registerUser(new User("Jonasxx1", "", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx2", "", "testavimas", "testavimas")));
     }
 
     @Test
