@@ -19,8 +19,8 @@ public class LoginTest {
 
     @Parameters({"username", "password"})
     @Test(priority = 3, groups = {"smoke"})
-    public void successfulLoginTest(@Optional("elentajonas") String username3, @Optional("testavimas") String password3) {
-        assertTrue(User.loginUser(new User(username3, password3)));
+    public void successfulLoginTest(@Optional("elentajonas") String username, @Optional("testavimas") String password) {
+        assertTrue(User.loginUser(new User(username, password)));
     }
 
     @BeforeClass
