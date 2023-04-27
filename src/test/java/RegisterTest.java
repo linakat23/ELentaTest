@@ -33,27 +33,27 @@ public class RegisterTest {
 
     @Test
     public void invalidEmailTest() {
-        assertFalse(User.registerUser(new User("Jonasxx1", "jonas11!@#jonaitis", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx3", "jonas11!@#jonaitis", "testavimas", "testavimas")));
     }
 
     @Test
     public void emailExistsTest() {
-        assertFalse(User.registerUser(new User("Jonasxx2", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx3", "jonasjonaitis11@yahoo.com", "testavimas", "testavimas")));
     }
 
     @Test
     public void emptyEmailTest() {
-        assertFalse(User.registerUser(new User("Jonasxx2", "", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx3", "", "testavimas", "testavimas")));
     }
 
     @Test
     public void tooLongEmailTest() {
-        assertFalse(User.registerUser(new User("Jonasxx1", "111112222233333444445555566666777778888899999@111112222233333444445555566666777778888899999.com", "testavimas", "testavimas")));
+        assertFalse(User.registerUser(new User("Jonasxx3", "111112222233333444445555566666777778888899999@111112222233333444445555566666777778888899999.com", "testavimas", "testavimas")));
     }
 
     @Test
     public void tooShortPasswordTest() {
-        assertFalse(User.registerUser(new User("Jonasxx1", "jonasxjonaitis1@yahoo.com", "a", "a")));
+        assertFalse(User.registerUser(new User("Jonasxx3", "jonasxjonaitis1@yahoo.com", "a", "a")));
     }
 
     @Test

@@ -17,7 +17,7 @@ public class LoginTest {
         assertFalse(User.loginUser(new User("", "")));
     }
 
-    @Parameters({"username3", "password3"})
+    @Parameters({"username", "password"})
     @Test(priority = 3, groups = {"smoke"})
     public void successfulLoginTest(@Optional("elentajonas") String username3, @Optional("testavimas") String password3) {
         assertTrue(User.loginUser(new User(username3, password3)));
