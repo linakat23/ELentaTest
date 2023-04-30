@@ -16,9 +16,9 @@ To set up the project, clone this repository and open it in Java IDE. Then, impo
 # Usage
 This project provides several test classes that cover different aspects of the ELenta application:
 
-- RegisterUserTest: tests the user registration process by filling out a form and submitting it.
+- RegisterUserTest: tests the user registration process by filling out a form with valid nad invalid input and submitting it.
 - LoginUserTest: tests the user login process by entering valid and invalid credentials.
-- AdCreationTest: tests the creation of a new ad by filling out a form and submitting it.
+- AdCreationTest: tests the creation of a new ad by filling out a form with valid and invalid input and submitting it.
 
 Each test class uses the Selenium WebDriver to interact with the ELenta application and verify its behavior. The tests are implemented using the TestNG framework, which provides a convenient way to define and run tests.
 
